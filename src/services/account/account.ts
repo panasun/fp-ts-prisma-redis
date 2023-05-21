@@ -21,7 +21,6 @@ export const createAccount = (args: ICreateAccount) =>
   pipe(
     TE.Do,
     TE.bind('wallet', () => createWallet({ accountId: args.accountId })),
-    TE.bind('tradingWallet', () => createWallet({ accountId: args.accountId })),
     TE.bind('account', ({ wallet }) =>
       TE.tryCatch(
         () =>
