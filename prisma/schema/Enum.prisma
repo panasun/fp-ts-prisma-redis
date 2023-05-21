@@ -1,0 +1,14 @@
+enum AccountStatusEnum {
+  PENDING
+  APPROVE
+  TERMINATE
+  REJECT
+}
+
+enum AccountAuthMethodEnum {
+  FACEBOOK
+  GOOGLE
+  EMAIL
+  LINE
+  PHONE
+}
