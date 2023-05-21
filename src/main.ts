@@ -15,11 +15,7 @@ app.get('/management/health', (req: Request, res: Response) => res.send('Ok'));
 
 AppRoutes.forEach((route) => {
   app[route.method](route.path, (request: Request, response: Response) =>
-    request?.headers?.x_service_account_key === env.SERVICE_ACCOUNT_KEY
-      ? route.action(request, response)
-      : response.status(500).json({
-          error: '26801: Invalid service account',
-        }),
+    route.action(request, response)
   );
 });
 app.listen(env.PORT, () => {

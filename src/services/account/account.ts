@@ -89,11 +89,11 @@ export const getAccount = (args: IGetAccount) =>
     TE.right(
       args?.accountId !== env.EXCHANGE_ACCOUNT_ID
         ? TE.tryCatch(
-          () =>
-            prisma.account.findUniqueOrThrow({
-              where: !isEmpty(args?.accountId)
-                ? { accountId: args.accountId }
-                : !isEmpty(args?.uuid)
+            () =>
+              prisma.account.findUniqueOrThrow({
+                where: !isEmpty(args?.accountId)
+                  ? { accountId: args.accountId }
+                  : !isEmpty(args?.uuid)
                   ? { uuid: args.uuid }
                   : !isEmpty(args?.userName)
                   ? { userName: args.userName?.trim() }
@@ -141,8 +141,8 @@ export const getAccounts = (args: IGetAccounts) =>
                 isEmpty(args?.status)
                   ? { status: undefined }
                   : {
-                    OR: args?.status?.map((s) => ({ status: s })),
-                  },
+                      OR: args?.status?.map((s) => ({ status: s })),
+                    },
               ],
             },
             orderBy: {
@@ -170,8 +170,8 @@ export const getAccounts = (args: IGetAccounts) =>
                   isEmpty(args?.status)
                     ? { status: undefined }
                     : {
-                      OR: args?.status?.map((s) => ({ status: s })),
-                    },
+                        OR: args?.status?.map((s) => ({ status: s })),
+                      },
                 ],
               },
               _count: { id: true },
