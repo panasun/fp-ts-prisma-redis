@@ -28,6 +28,7 @@ This repository provides a real-world API project that utilizes the `fp-ts` func
   - `TE.bind`
   - `TE.map`
   - `TE.mapLeft`
+  - `TE.chain`
   - `TE.tryCatch`
   - `getOrElse`
   - `omit`
